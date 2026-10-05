@@ -147,4 +147,177 @@ The model can be evaluated using:
 * Precision
 * Recall
 * F1-score
+* Confusion Matrix
 
+### Precision
+
+Precision tells us how many customers predicted as purchasers actually purchased.
+
+### Recall
+
+Recall tells us how many of the actual purchasers were correctly identified.
+
+### F1-Score
+
+F1-score provides a balance between precision and recall.
+
+---
+
+## 💾 Saved Model Files
+
+| File         | Purpose                                      |
+| ------------ | -------------------------------------------- |
+| `knn.pkl`    | Trained KNN classification model             |
+| `scaler.pkl` | Fitted StandardScaler used for preprocessing |
+
+The scaler is saved because new input data must go through the **same scaling process** used during model training.
+
+---
+
+## 🖥️ Application
+
+The project contains an `app.py` file that can be used to make predictions for a new customer.
+
+The application takes:
+
+```text
+Age
+Estimated Salary
+```
+
+and predicts whether the customer is likely to purchase the product.
+
+```text
+Customer Details
+       ↓
+StandardScaler
+       ↓
+KNN Model
+       ↓
+Prediction
+       ↓
+Purchased / Not Purchased
+```
+
+---
+
+## 🛠️ Technologies Used
+
+* Python 🐍
+* Pandas
+* NumPy
+* Scikit-learn
+* Matplotlib
+* Seaborn
+* Pickle
+* Streamlit
+
+---
+
+## 📂 Project Structure
+
+```text
+Purchase_Prediction/
+│
+├── app.py
+├── dataset.csv
+├── knn.pkl
+├── scaler.pkl
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## ▶️ How to Run the Project
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/aditi-tawade-ai/ML_Projects.git
+```
+
+### 2. Navigate to the Project
+
+```bash
+cd ML_Projects/Purchase_Prediction
+```
+
+### 3. Install Required Libraries
+
+```bash
+pip install -r requirements.txt
+```
+
+Or install them manually:
+
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn streamlit
+```
+
+### 4. Run the Application
+
+```bash
+streamlit run app.py
+```
+
+The application will open in your browser.
+
+---
+
+## 🔍 Example
+
+Suppose a new customer has:
+
+```text
+Age = 35
+Estimated Salary = 60,000
+```
+
+The input is first scaled using the saved scaler:
+
+```text
+Age + Salary
+      ↓
+StandardScaler
+      ↓
+KNN Model
+      ↓
+Nearest Customers
+      ↓
+Majority Vote
+      ↓
+Purchase Prediction
+```
+
+The model then predicts whether the customer is likely to purchase the product.
+
+---
+
+## 💡 Key Learning
+
+Through this project, I practiced:
+
+* Supervised Machine Learning
+* Classification
+* K-Nearest Neighbors (KNN)
+* Choosing the value of K
+* Feature Scaling
+* Train-Test Split
+* Distance-based classification
+* Confusion Matrix
+* Precision, Recall and F1-score
+* Model Serialization using Pickle
+* Using a trained ML model for predictions
+* Deploying an ML model using Streamlit
+
+---
+
+## 🚀 Future Improvements
+
+* Perform hyperparameter tuning to find the optimal `K`.
+* Compare KNN with SVM, Decision Tree and Random Forest.
+* Improve model performance using feature engineering.
+* Add probability/confidence information to predictions.
+* Improve the Streamlit interface.
+* Deploy the application online.
